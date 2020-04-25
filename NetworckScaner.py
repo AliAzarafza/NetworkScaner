@@ -2,6 +2,14 @@
 #   libraris    #
 #################
 import scapy.all as scapy
+import optparse
+
+
+def GetArgu():
+    parser = optparse.OptionParser()
+    parser.add_option("-t", "--target", dest="target", help="target ip / ip range()")
+    (options, arguments) = parser.parse_args()
+    return options
 
 
 #ARP recust and its resalts
@@ -23,6 +31,7 @@ def printer(resaltsLIST):
         print(client["ip"] + '\t\t' + client["MAC"])
 
 
-#scan(ip/rang)
-scanResalt = scan("10.0.2.4/24")
+#scan(ip/range)
+options = GetArgu()
+scanResalt = scan(options.target)
 printer(scanResalt)
