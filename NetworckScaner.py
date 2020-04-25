@@ -7,7 +7,7 @@ import argparse
 
 def GetArgu():
     parser = argparse.ArgumentParser()
-    parser.add_option("-t", "--target", dest="target", help="target ip / ip range()")
+    parser.add_option("-t", "--target", dest="target", help="target ip / ip range(\"/8,/16,/24\")")
     options = parser.parse_args()
     return options
 
